@@ -1,0 +1,35 @@
+{
+    "name": "Talking Stick",
+    "version": "0.1",
+    "description": "Pauses the video playing on the other tab when you start play the video you want to watch.",
+    "manifest_version": 2,
+    "icons": {
+    	"16": "img/img16.png",
+        "32": "img/img32.png",
+        "48": "img/img48.png",
+        "64": "img/img64.png",
+        "128": "img/img128.png"
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "browser_action": {
+    	"default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ],
+        "persistent": false
+    },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+     "tabs", "activeTab"
+  ]
+}
